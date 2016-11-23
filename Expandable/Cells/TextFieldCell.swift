@@ -26,7 +26,7 @@ class TextFieldCell: UITableViewCell {
 }
 
 extension Reactive where Base: TextFieldCell {
-    var text: ControlProperty<String> {
-        return base.textField.rx.textInput.text
+    var text: ControlProperty<String?> {
+        return base.textField.rx.text
     }
 }

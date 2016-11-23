@@ -111,7 +111,7 @@ class ViewController: UIViewController {
             case let .textField(text, placeholder):
                 let textFieldCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.textFieldCell, for: indexPath)!
                 textFieldCell.placeholder = placeholder
-                (textFieldCell.rx.text <-> text).addDisposableTo(textFieldCell.rx.prepareForReuseBag)
+//                (textFieldCell.rx.text <-> text).addDisposableTo(textFieldCell.rx.prepareForReuseBag)
                 return textFieldCell
             case let .datePick(date):
                 let datePickerCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.datePickerCell, for: indexPath)!
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
         }
 
         dataSource.titleForHeaderInSection = { dataSource, section in
-            return dataSource.sectionAtIndex(section).model.rawValue
+            return dataSource[section].model.rawValue
         }
 
         tableView.rx.itemSelected
